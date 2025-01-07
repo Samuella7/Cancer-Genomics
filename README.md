@@ -25,3 +25,26 @@ cancer. All raw data were collected and are freely available in the online repos
 
 Table 1.
 
+
+
+# SRA Toolkit Installation and Usage
+SRA (Sequence Read Archive) contains raw sequencing data and is a binary file. SRS (Sample) corresponds to a biological sample and often groups several Run IDs (SRR) associated with the same sample. SRR (Run) corresponds to a specific sequencing run. It is the fundamental unit in the SRA. This divides the reads into multiple FASTQ files if the data is paired-end (paired reads).
+
+Installing sra-tools on Linux:
+1.Update packages: 
+sudo apt update
+2.Create a new directory for the installation.
+mkdir -p /mnt/c/Users/samy4/Desktop/sratoolkit/bin/SRR14994031
+cd /mnt/c/Users/samy4/Desktop/sratoolkit/bin/SRR14994031
+3.Install sra-tools:
+sudo apt install -y sra-toolkit
+4.Configure sra-tools (if necessary):
+vdb-config --interactive
+5.Verify that the fasterq-dump command works:
+fasterq-dump --version
+6.Use fasterq-dump to split reads into multiple FASTQ files (if the data is paired-end):
+fasterq-dump --split-files SRR14994031
+
+
+
+
